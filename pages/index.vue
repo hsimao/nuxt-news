@@ -9,36 +9,58 @@
         class="md-icon-button">
         <md-icon>menu</md-icon>
       </md-button>
-      <nuxt-link class="md-primary md-title" to="/"><span
-          v-if="source">{{source.name}}</span>
+      <nuxt-link class="navbar-title md-primary md-title"
+        to="/"><span v-if="source">{{source.name}}</span>
         新聞
         - {{categoryName}}</nuxt-link>
 
       <div class="md-toolbar-section-end">
         <!-- 有登入顯示用戶資訊 -->
         <template v-if="auth">
-          <md-button>
+          <md-button class="user-data">
             <md-avatar>
               <img :src="user.avatar" :alt="user.email">
             </md-avatar>
-            {{user.email}}
+            <span class="u-hidden-pad">{{user.email}}</span>
           </md-button>
-          <md-button @click="logout">登出</md-button>
+          <md-button class="u-hidden-sm" @click="logout">登出</md-button>
+          <md-button class="u-hidden u-flex-sm md-icon-button"
+            @click="logout">登出</md-button>
         </template>
         <!-- 沒登入顯示登入、註冊按鈕 -->
         <template v-else>
-          <nuxt-link to="/login">
-            <md-button>登入</md-button>
-          </nuxt-link>
-          <nuxt-link to="/register">
-            <md-button>註冊</md-button>
-          </nuxt-link>
+          <div class="u-hidden-sm">
+            <nuxt-link to="/login">
+              <md-button>登入</md-button>
+            </nuxt-link>
+            <nuxt-link to="/register">
+              <md-button>註冊</md-button>
+            </nuxt-link>
+          </div>
+          <div class="u-hidden u-flex-sm">
+            <nuxt-link to="/login">
+              <md-button class="md-icon-button">
+                <md-icon>input</md-icon>
+              </md-button>
+            </nuxt-link>
+          </div>
         </template>
 
         <!-- 搜尋 -->
-        <md-button class="md-primary" @click="showSearchDialog = true">搜尋</md-button>
-
-        <md-button @click="showRightSidepanel = true">分類</md-button>
+        <div class="u-hidden-sm">
+          <md-button class="md-primary" @click="showSearchDialog = true">搜尋</md-button>
+          <md-button @click="showRightSidepanel = true">分類</md-button>
+        </div>
+        <div class="u-hidden u-flex-sm" style="margin-left: 1em;">
+          <md-button class="md-icon-button"
+            @click="showSearchDialog = true">
+            <md-icon>search</md-icon>
+          </md-button>
+          <md-button class="md-icon-button" style="margin-left: 0em;"
+            @click="showRightSidepanel = true">
+            <md-icon>view_list</md-icon>
+          </md-button>
+        </div>
       </div>
     </md-toolbar>
     <!-- Navbar End -->
@@ -414,6 +436,20 @@ a {
   i {
     color: $colorPrimary !important;
     vertical-align: midde;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-title {
+    margin-left: 0 !important;
+    font-size: 18px;
+  }
+  .user-data {
+    min-width: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 4px;
   }
 }
 </style>

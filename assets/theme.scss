@@ -27,3 +27,25 @@
 .page-leave-active {
   transition: all 0.5s;
 }
+
+.u-hidden {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .u-hidden-sm {
+    display: none !important;
+  }
+  .u-flex-sm {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .u-hidden-pad {
+    display: none !important;
+  }
+  .u-flex-pad {
+    display: flex !important;
+  }
+}

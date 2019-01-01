@@ -1,7 +1,7 @@
 <template>
   <div class="md-layout md-alignment-center-center"
     style="height: 100vh;">
-    <md-card class="md-layout-item md-size-50">
+    <md-card class="md-layout-item md-size-50 md-small-size-80 md-xsmall-size-95">
       <md-card-header>
         <div class="md-title">註冊</div>
       </md-card-header>
