@@ -1,0 +1,29 @@
+@import "~vue-material/dist/theme/engine";
+
+// 自訂vue-material 顏色
+// https://vuematerial.io/themes/configuration
+@include md-register-theme(
+  "default",
+  (
+    // primary: md-get-palette-color(lightgreen, 400),
+      primary: #5770f6,
+    primaryDark: red,
+    accent: md-get-palette-color(red, A400),
+    // 深色主題或淺色 dark / light
+      theme: light
+  )
+);
+
+@import "~vue-material/dist/theme/all";
+
+// 頁面轉換效果 page transitions
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.5s;
+}
